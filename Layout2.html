@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>레이아웃2</title>
+        <meta charset="utf-8"/>
+        <style>
+            header{
+                background-color: green;
+                color: white;
+            }
+            #logo_back{
+                color: yellow;
+            }
+            header>nav>ul>li{
+                float: left;
+                list-style: none;
+                padding: 0px 10px;
+            }
+            .float_left { float:left; }
+            .float_right {float:right;}
+            .clear {clear:both; height:0; overflow:hidden;}
+            header>h1{
+                margin: 0px;
+            }
+            #main_visual{height: 500px;
+             background-image: url("images/layout2_visual.jpg");
+             background-size: auto 100%;
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-color: black;
+             background-position: 50% 50%;/*가로 세로*/
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="wrap">
+            <header>
+                
+                <h1 class="float_left">
+                    <span>MY</span>
+                    <span id="logo_back">FOLIO</span>
+                    <!--의미 없이 구획나누기 좋음-->
+                </h1>
+
+                <nav class="float_right">
+                    <ul>
+                        <li>HOME</li>
+                        <li>ABOUT ME</li>
+                        <li>SERVICE</li>
+                        <li>MY WORK</li>
+                        <li>CONTACT ME</li>
+                        <div  class="clear"></div>
+                    </ul>
+                </nav>
+                <div  class="clear"></div>
+            </header>
+            
+            <div id="main_visual"></div>
+            <div>content1</div>
+            <div>content2</div>
+        </div>
+    </body>
+
+
+
+
+
+
+
+
+</html>

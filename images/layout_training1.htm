@@ -1,0 +1,1759 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>kaywon html reference book</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<style type="text/css">
+			@import url("/kaywon/css/common.css");
+		</style>
+		<!--
+			<link rel="stylesheet" type="text/css" href="/kaywon/css/common.css">
+		-->
+	<script src="/kaywon/js/common.js"></script>
+	</head>
+	<body>
+		<div id="includedContent"></div>
+		<h1>레이아웃 연습1</h1>
+		<a href="/kaywon/sub/img/layout_psd/example1.psd">PSD 다운로드</a>
+		<h2>구조파악 / 구조잡기 (construct)</h2>
+		<table class="table_fix">
+			<tr>
+				<td class="table_title">결과물</td>
+				<td class="table_title">레이아웃</td>
+				<td class="table_title">HTML 구조</td>
+				<td class="table_title">CSS Layout (박스모델)</td>
+			</tr>
+			<tr>
+				<td><img src="/kaywon/sub/img/layout_training_image1.jpg" /></td>
+				<td><img src="/kaywon/sub/img/layout_training_image2.jpg" /></td>
+				<td>
+					<style type="text/css">
+						#wrap3 div,#wrap3 ul{
+							margin-left: 20px;
+							padding: 5px;
+						}
+						#wrap3 .element,#wrap3 .logo,#wrap3 .title,#wrap3 .link_list{
+							border: solid 1px #aaa;
+						}
+					</style>
+					<div id="wrap3" style="background-color:#ccc">wrap
+						<div id="header" style="background-color:#fff">header
+							<div class="logo">logo</div>
+							<ul class="link_list">
+								head list
+								<li>link1</li>
+								<li>link2</li>
+								<li>link3</li>
+							</ul>
+						</div>
+						<div id="navigation" style="background-color:#eee">navigation
+							<div class="title">title</div>
+							<ul class="link_list">
+								navigation list
+								<li>link1</li>
+								<li>link2</li>
+								<li>link3</li>
+							</ul>
+						</div>
+						<div id="content" style="background-color:#dcb">content
+							<div class="container" style="background-color:#98f">container1
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container" style="background-color:#5d9">container2
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container" style="background-color:#f76">container3
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container" style="background-color:#ec5">container4
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+						</div>
+						<div id="footer" style="background-color:#333">footer</div>
+					</div>
+				</td>
+				<td>
+					<style type="text/css">
+						#wrap2 *{
+							margin: 0px;
+							padding: 0px;
+						}
+						#wrap2 div, #wrap2 ul{
+							margin-left: 20px;
+							padding: 5px;
+						}
+						#wrap2 .element, #wrap2 .link_list, #wrap2 .logo, #wrap2 .title{
+							float:left;
+						}
+						#wrap2 .link_list li{
+							float:left;
+						}
+						#wrap2 .element{
+							width: 30%;
+							height: 50px;
+						}
+						#wrap2 .container{
+							padding-left: 10%;
+							padding-right: 10%;
+						}
+						#wrap2 .element,#wrap2 .logo,#wrap2 .title,#wrap2 .link_list{
+							border: solid 1px #aaa;
+						}
+						#wrap2 .clear_fix{
+							overflow:auto;
+							clear:both;
+						}
+					</style>
+					<div id="wrap2" style="background-color:#ccc">wrap
+						<div id="header" class="clear_fix" style="background-color:#fff">
+							<div class="logo">logo</div>
+							<ul class="link_list">
+								<li>link1</li>
+								<li>link2</li>
+								<li>link3</li>
+							</ul>
+						</div>
+						<div id="navigation" class="clear_fix" style="background-color:#eee">
+							<div class="title">title</div>
+							<ul class="link_list">
+								<li>link1</li>
+								<li>link2</li>
+								<li>link3</li>
+							</ul>
+						</div>
+						<div id="content" style="background-color:#dcb">content
+							<div class="container clear_fix" style="background-color:#98f">
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container clear_fix" style="background-color:#5d9">
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container clear_fix" style="background-color:#f76">
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+							<div class="container clear_fix" style="background-color:#ec5">
+								<div class="element">element1</div>
+								<div class="element">element2</div>
+							</div>
+						</div>
+						<div id="footer" style="background-color:#333">footer</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h2>HTML구조</h2>
+		<h3>큰틀 잡기</h3>
+		<table>
+			<tr>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#wrap{
+		background-color:#ccc;
+	}
+	#wrap #header{
+		background-color:#fff;
+	}
+	#wrap #navigatioin{
+		background-color:#eee;
+	}
+	#wrap #content{
+		background-color:#dcb;
+	}
+	#wrap #footer{
+		background-color:#333;
+	}
+</style>
+<div id="wrap">wrap
+	<div id="header">header</div>
+	<div id="navigation">navigation</div>
+	<div id="content">content</div>
+	<div id="footer">footer</div>
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	#wrap{
+		background-color:#ccc;
+	}
+	#wrap #header{
+		background-color:#fff;
+	}
+	#wrap #navigatioin{
+		background-color:#eee;
+	}
+	#wrap #content{
+		background-color:#dcb;
+	}
+	#wrap #footer{
+		background-color:#333;
+	}
+</style>
+<div id="wrap">wrap
+	<div id="header">header</div>
+	<div id="navigation">navigation</div>
+	<div id="content">content</div>
+	<div id="footer">footer</div>
+</div>
+				</td>
+			</tr>
+		</table>
+		<h3>Header</h3>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h4>html 구조</h4>
+		<table>
+			<tr>
+				<td colspan="2">
+					<img style="width:1400px;" src="/kaywon/sub/img/layout_jpg/layout1_head.jpg" />
+				</td>
+			</tr>
+			<tr>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#header #logo{
+		width:100px;
+	}
+	#header #zoom{
+		width: 20px;
+	}
+</style>
+<div id="header">
+	<h1 id="logo"><a href="#"><img src="/kaywon/sub/img/layout_jpg/layout1_head_logo.jpg" /></a></h1>
+	<ul>
+		<li>
+			<a href="#">ABOUT</a>
+		</li>
+		<li>
+			<a href="#">SERVICES</a>
+		</li>
+		<li>
+			<a href="#">WORKS</a>
+		</li>
+		<li>
+			<a href="#">BLOG</a>
+		</li>
+		<li>
+			<a href="#">CONTACT US</a>
+		</li>
+	</ul>
+	<img id="zoom" src="/kaywon/sub/img/layout_jpg/layout1_head_zoom.jpg" />
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	#header h1{
+		border-style:none;
+		background-color:transparent;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#header #logo{
+		width:100px;
+	}
+	#header #zoom{
+		width: 20px;
+	}
+</style>
+<div id="header">
+	<h1 id="logo"><a href="#"><img src="/kaywon/sub/img/layout_jpg/layout1_head_logo.jpg" /></a></h1>
+	<ul>
+		<li>
+			<a href="#">ABOUT</a>
+		</li>
+		<li>
+			<a href="#">SERVICES</a>
+		</li>
+		<li>
+			<a href="#">WORKS</a>
+		</li>
+		<li>
+			<a href="#">BLOG</a>
+		</li>
+		<li>
+			<a href="#">CONTACT US</a>
+		</li>
+	</ul>
+	<img id="zoom" src="/kaywon/sub/img/layout_jpg/layout1_head_zoom.jpg" />
+</div>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h4>박스 모델</h4>
+		<table>
+			<tr>
+				<td colspan="2">
+					<img style="width:1400px;" src="/kaywon/sub/img/layout_jpg/layout1_head.jpg" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+<style type="text/css">
+	#header1 h1{
+		border-style:none;
+		background-color:transparent;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#header1 {
+		width: 1000px;
+		overflow: auto;
+		vertical-align: middle;
+		position:relative;
+		left:200px;
+	}
+	#header1 #logo{
+		float:left;
+		width:189px;
+		height:47px;
+	}
+	#header1 #zoom{
+		float:right;
+		width:20px;
+		height:24px;
+		margin-top:15px;
+		margin-bottom:15px;
+	}
+	#header1 #navi_list{
+		float:left;
+		overflow:hidden;
+		width: 500px;
+		height: 15px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 140px;
+		margin-right: 140px;
+		padding: 0px;
+	}
+	#header1 #navi_list li{
+		float:left;
+		list-style: none;
+		border-right: solid 2px #626262;
+		padding-top:0px;
+		padding-bottom:0px;
+		padding-left:20px;
+		padding-right:20px;
+		margin:0px;
+		height:15px;
+	}
+	#header1 #navi_list li:last-child{
+		border-style: none;
+	}
+	#header1 a{
+		font-family: verdana, sans-serif;
+		font-size: 13px;
+		color:#626262;
+		text-decoration: none;
+	}
+	#header1 a:hover{
+		color:#00aeff;
+	}
+	#header1 .clearfix{
+		clear:both;
+	}
+</style>
+<div id="header1" class="clearfix">
+	<h1 id="logo"><a href="#"><img src="/kaywon/sub/img/layout_jpg/layout1_head_logo.jpg" /></a></h1>
+	<ul id="navi_list">
+		<li class="navi_content">
+			<a href="#">ABOUT</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">SERVICES</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">WORKS</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">BLOG</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">CONTACT US</a>
+		</li>
+	</ul>
+	<img id="zoom" src="/kaywon/sub/img/layout_jpg/layout1_head_zoom.jpg" />
+</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="table_title">CSS</td>
+				<td class="table_title">HTML</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#header1 h1{
+		border-style:none;
+		background-color:transparent;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#header1 {
+		width: 1000px;
+		overflow: auto;
+		vertical-align: middle;
+		position:relative;
+		left:200px;
+	}
+	#header1 #logo{
+		float:left;
+		width:189px;
+		height:47px;
+	}
+	#header1 #zoom{
+		float:right;
+		width:20px;
+		height:24px;
+		margin-top:15px;
+		margin-bottom:15px;
+	}
+	#header1 #navi_list{
+		float:left;
+		overflow:hidden;
+		width: 500px;
+		height: 15px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 140px;
+		margin-right: 140px;
+		padding: 0px;
+	}
+	#header1 #navi_list li{
+		float:left;
+		list-style: none;
+		border-right: solid 2px #626262;
+		padding-top:0px;
+		padding-bottom:0px;
+		padding-left:20px;
+		padding-right:20px;
+		margin:0px;
+		height:15px;
+	}
+	#header1 #navi_list li:last-child{
+		border-style: none;
+	}
+	#header1 a{
+		font-family: verdana, sans-serif;
+		font-size: 13px;
+		color:#626262;
+		text-decoration: none;
+	}
+	#header1 a:hover{
+		color:#00aeff;
+	}
+	#header1 .clearfix{
+		clear:both;
+	}
+</style>
+					</xmp>
+				</td>
+				<td>
+					<xmp>
+<div id="header1" class="clearfix">
+	<h1 id="logo"><a href="#"><img src="/kaywon/sub/img/layout_jpg/layout1_head_logo.jpg" /></a></h1>
+	<ul id="navi_list">
+		<li class="navi_content">
+			<a href="#">ABOUT</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">SERVICES</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">WORKS</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">BLOG</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">CONTACT US</a>
+		</li>
+	</ul>
+	<img id="zoom" src="/kaywon/sub/img/layout_jpg/layout1_head_zoom.jpg" />
+</div>
+					</xmp>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h3>Navigation</h3>
+		<h4>HTML 구조</h4>
+		<table>
+			<tr>
+				<td colspan="2">
+					<img style="width:1400px;" src="/kaywon/sub/img/layout_jpg/layout1_navigation.jpg" />
+				</td>
+			</tr>
+			<tr>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<td colspan="2">
+	<div id="navigation">
+		<h2>See Our Works</h2>
+		<ul id="navigation">
+			<li class="navi_content">
+				<a href="#">Web Design</a>
+			</li>
+			<li class="navi_content">
+				<a href="#">Icons</a>
+			</li>
+			<li class="navi_content">
+				<a href="#">Illustlations</a>
+			</li>
+			<li class="navi_content">
+				<a href="#">Misc</a>
+			</li>
+		</ul>
+	</div>
+</td>
+					</xmp>
+				</td>
+				<td>
+					<style type="text/css">
+					#navigation h2{
+						border-style:none;
+						background-color:transparent;
+						text-indent:0px;
+						margin:0px;
+						padding:0px;
+					}
+					</style>
+					<div id="navigation">
+						<h2>See Our Works</h2>
+						<ul id="navigation">
+							<li class="navi_content">
+								<a href="#">Web Design</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Icons</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Illustlations</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Misc</a>
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- ------------------------------------------------------------------------------------------ -->
+		<h4>CSS Layout</h4>
+		<table>
+			<tr>
+				<td colspan="2">
+					<img style="width:1400px;" src="/kaywon/sub/img/layout_jpg/layout1_navigation.jpg" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<style type="text/css">
+					#navigation1 h2{
+						border-style:none;
+						background-color:transparent;
+						text-indent:0px;
+						margin:0px;
+						padding:0px;
+					}
+				</style>
+				<style type="text/css">
+					#navigation1 {
+						position:relative;
+						margin:0px;
+						padding:0px;
+						left:200px;
+						width:1000px;
+						overflow: auto;
+					}
+					#navigation1 h2{
+						font-family: verdana, sans-serif;
+						font-weight: normal;
+						font-size: 36px;
+						color: #626262;
+						float:left;
+					}
+					#navigation1 #navi_list{
+						list-style: none;
+						float:left;
+					}
+					#navigation1 a{
+						font-family: verdana, sans-serif;
+						font-size: 13px;
+						color:#626262;
+						text-decoration: none;
+					}
+					#navigation1 a:hover{
+						color:#00aeff;
+					}
+					#navigation1 ul{
+						margin-left:20px;
+						margin-right:20px;
+					}
+					#navigation1 li{
+						float:left;
+						padding-left:20px;
+						padding-right:20px;
+						padding-top:0px;
+						padding-bottom:0px;
+						margin:0px;
+					}
+				</style>
+					<div id="navigation1">
+						<h2>See Our Works</h2>
+						<ul id="navi_list">
+							<li class="navi_content">
+								<a href="#">Web Design</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Icons</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Illustlations</a>
+							</li>
+							<li class="navi_content">
+								<a href="#">Misc</a>
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="table_title">CSS</td>
+				<td class="table_title">HTML</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#navigation1 {
+		position:relative;
+		margin:0px;
+		padding:0px;
+		left:200px;
+		width:1000px;
+		overflow: auto;
+	}
+	#navigation1 h2{
+		font-family: verdana, sans-serif;
+		font-weight: normal;
+		font-size: 36px;
+		color: #626262;
+		float:left;
+	}
+	#navigation1 #navi_list{
+		list-style: none;
+		float:left;
+	}
+	#navigation1 a{
+		font-family: verdana, sans-serif;
+		font-size: 13px;
+		color:#626262;
+		text-decoration: none;
+	}
+	#navigation1 a:hover{
+		color:#00aeff;
+	}
+	#navigation1 ul{
+		margin-left:20px;
+		margin-right:20px;
+	}
+	#navigation1 li{
+		float:left;
+		padding-left:20px;
+		padding-right:20px;
+		padding-top:0px;
+		padding-bottom:0px;
+		margin:0px;
+	}
+</style>
+					</xmp>
+				</td>
+				<td>
+					<xmp>
+<div id="navigation1">
+	<h2>See Our Works</h2>
+	<ul id="navi_list">
+		<li class="navi_content">
+			<a href="#">Web Design</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">Icons</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">Illustlations</a>
+		</li>
+		<li class="navi_content">
+			<a href="#">Misc</a>
+		</li>
+	</ul>
+</div>
+					</xmp>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h3>Content</h3>
+		<h4>HTML 구조</h4>
+		<h5>container</h5>
+		<table>
+			<tr>
+				<td class="table_title">이미지</td>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<img style="width:300px;" src="/kaywon/sub/img/layout_jpg/layout1_content.jpg" />
+				</td>
+				<td>
+					<xmp>
+<style type="text/css">
+	#content h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#content{
+		border: solid 1px #000;
+	}
+	#content div{
+		border: solid 1px #000;
+	}
+	#content #container1{
+		background-color: #98f;
+	}
+	#content #container2{
+		background-color: #5d9;
+	}
+	#content #container3{
+		background-color: #f76;
+	}
+	#content #container4{
+		background-color: #ec5;
+	}
+</style>
+<div id="content">
+	<div id="container1">container1
+		<div class="element1">element1</div>
+		<div class="element2">element2</div>
+	</div>
+	<div id="container2">container2
+		<div class="element1">element1</div>
+		<div class="element2">element2</div>
+	</div>
+	<div id="container3">container3
+		<div class="element1">element1</div>
+		<div class="element2">element2</div>
+	</ul>
+	<div id="container4">
+		<div class="element1">element1</div>
+		<div class="element2">element2</div>
+	</div>
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	#content h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#content{
+		border: solid 1px #000;
+	}
+	#content div{
+		border: solid 1px #000;
+	}
+	#content #container1{
+		background-color: #98f;
+	}
+	#content #container2{
+		background-color: #5d9;
+	}
+	#content #container3{
+		background-color: #f76;
+	}
+	#content #container4{
+		background-color: #ec5;
+	}
+</style>
+<div id="content">
+	<div id="container1">container1
+		<div class="element">element1</div>
+		<div class="element">element2</div>
+	</div>
+	<div id="container2">container2
+		<div class="element">element1</div>
+		<div class="element">element2</div>
+	</div>
+	<div id="container3">container3
+		<div class="element">element1</div>
+		<div class="element">element2</div>
+	</ul>
+	<div id="container4">container4
+		<div class="element">element1</div>
+		<div class="element">element2</div>
+	</div>
+</div>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h5>element</h5>
+		<table>
+			<tr>
+				<td class="table_title">이미지</td>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<img style="width:300px;" src="/kaywon/sub/img/layout_jpg/layout1_content_detail.jpg" />
+					<img style="width:300px;" src="/kaywon/sub/img/layout_jpg/layout1_element_plan.jpg" />
+				</td>
+				<td>
+					<xmp>
+<style type="text/css">
+	.element1 h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	.element1 img{
+		width:240px;
+		height:150px;
+	}
+</style>
+<div class="element1">
+	<h3>Web Design</h3>
+	<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+	<dl>
+		<dt>Lorem ipsum dolor sit amet</dt>
+		<dd>
+			Consectetur adipiscing elit. Suspendisse sed leo tellus.
+			Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+			at massa eget orci porttitor semper.
+		</dd>
+	</dl>
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	.element1 h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	.element1 img{
+		width:240px;
+		height:150px;
+	}
+</style>
+<div class="element1">
+	<h3>Web Design</h3>
+	<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+	<dl>
+		<dt>Lorem ipsum dolor sit amet</dt>
+		<dd>
+			Consectetur adipiscing elit. Suspendisse sed leo tellus.
+			Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+			at massa eget orci porttitor semper.
+		</dd>
+	</dl>
+</div>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h5>full content</h5>
+		<table>
+			<tr>
+				<td class="table_title">이미지</td>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<img style="width:300px;" src="/kaywon/sub/img/layout_jpg/layout1_content.jpg" />
+				</td>
+				<td>
+					<xmp>
+<style type="text/css">
+	#content h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#content{
+		border: solid 1px #000;
+	}
+	#content div{
+		border: solid 1px #000;
+	}
+	#content #container1{
+		background-color: #98f;
+	}
+	#content #container2{
+		background-color: #5d9;
+	}
+	#content #container3{
+		background-color: #f76;
+	}
+	#content #container4{
+		background-color: #ec5;
+	}
+	#content img{
+		width:240px;
+		height:150px;
+	}
+</style>
+<div id="content">
+	<div id="container1">
+		<h3>Web Design</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img2.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container2">
+		<h3>Icons</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img3.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img4.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container3">
+		<h3>illustrations</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img5.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img6.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container4">
+		<h3>Miscellaneous</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img7.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img8.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	#content h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+	#content img{
+		width:240px;
+		height:150px;
+	}
+</style>
+<style type="text/css">
+	#content{
+		border: solid 1px #000;
+	}
+	#content div{
+		border: solid 1px #000;
+	}
+	#content #container1{
+		background-color: #98f;
+	}
+	#content #container2{
+		background-color: #5d9;
+	}
+	#content #container3{
+		background-color: #f76;
+	}
+	#content #container4{
+		background-color: #ec5;
+	}
+</style>
+<div id="content">
+	<div id="container1">
+		<h3>Web Design</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img2.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container2">
+		<h3>Icons</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img3.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img4.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container3">
+		<h3>illustrations</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img5.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img6.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container4">
+		<h3>Miscellaneous</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img7.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img8.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h4>CSS layout</h4>
+				<table>
+			<tr>
+				<td class="table_title">소스코드</td>
+				<td class="table_title">결과물</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#content1 h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#content1{
+		width:1000px;
+	}
+	#content1 h3{
+		color: #fff;
+		font-family: verdana, sans-serif;
+		font-size: 26px;
+		margin-top:14px;
+		margin-bottom:45px;
+		margin-left:10px;
+		margin-right:10px;
+	}
+	#content1 #container1{
+		overflow: auto;
+		position: relative;
+		background-color: #98f;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container2{
+		overflow: auto;
+		position: relative;
+		background-color: #5d9;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container3{
+		overflow: auto;
+		position: relative;
+		background-color: #f76;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container4{
+		overflow: auto;
+		position: relative;
+		background-color: #ec5;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+		#content1 img{
+		width:480px;
+		height:300px;
+		margin: 0px;
+	}
+
+	#content1 .element{
+		float:left;
+		width: 480px;
+		margin-left: 10px;
+	}
+	#content1 .element dt{
+		font-size: 15px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	#content1 .element dd{
+		margin-top: 25px;
+		margin-bottom: 25px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+</style>
+<div id="content1">
+	<div id="container1">
+		<h3>Web Design</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img2.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container2">
+		<h3>Icons</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img3.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img4.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container3">
+		<h3>illustrations</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img5.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img6.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container4">
+		<h3>Miscellaneous</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img7.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img8.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+					</xmp>
+				</td>
+				<td>
+<style type="text/css">
+	#content1 h3{
+		border-style:none;
+		background-color:transparent;
+		text-indent:0px;
+		margin:0px;
+		padding:0px;
+	}
+</style>
+<style type="text/css">
+	#content1{
+		width:1000px;
+	}
+	#content1 h3{
+		color: #fff;
+		font-family: verdana, sans-serif;
+		font-size: 26px;
+		margin-top:14px;
+		margin-bottom:45px;
+		margin-left:10px;
+		margin-right:10px;
+	}
+	#content1 #container1{
+		overflow: auto;
+		position: relative;
+		background-color: #98f;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container2{
+		overflow: auto;
+		position: relative;
+		background-color: #5d9;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container3{
+		overflow: auto;
+		position: relative;
+		background-color: #f76;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#content1 #container4{
+		overflow: auto;
+		position: relative;
+		background-color: #ec5;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+		#content1 img{
+		width:480px;
+		height:300px;
+		margin: 0px;
+	}
+
+	#content1 .element{
+		float:left;
+		width: 480px;
+		margin-left: 10px;
+	}
+	#content1 .element dt{
+		font-size: 15px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	#content1 .element dd{
+		margin-top: 25px;
+		margin-bottom: 25px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+</style>
+<div id="content1">
+	<div id="container1">
+		<h3>Web Design</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img1.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img2.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container2">
+		<h3>Icons</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img3.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img4.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container3">
+		<h3>illustrations</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img5.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img6.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div id="container4">
+		<h3>Miscellaneous</h3>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img7.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+		<div class="element">
+			<img src="/kaywon/sub/img/layout_jpg/layout1_img8.jpg">
+			<dl>
+				<dt>Lorem ipsum dolor sit amet</dt>
+				<dd>
+					Consectetur adipiscing elit. Suspendisse sed leo tellus.
+					Praesent nec vehicula ligula, non laoreet ligula. Maecenas
+					at massa eget orci porttitor semper.
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+		<h3>Navigation</h3>
+		<h4>HTML 구조 &amp; CSS layout</h4>
+		<table>
+			<tr>
+				<td colspan="2">
+					<img style="width:900px;" src="/kaywon/sub/img/layout_jpg/layout1_footer.jpg" />
+					<img style="width:900px;" src="/kaywon/sub/img/layout_jpg/layout1_footer_plan.jpg" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+<style type="text/css">
+	#footer{
+		background-color: #333;
+		width:1000px;
+		position:relative;
+		overflow: auto;
+		color:#aaa;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#family_link{
+		float:right;
+	}
+	#family_link img{
+		width:37px;
+		height:37px;
+	}
+	#footer_util{
+		position:relative;
+		overflow: auto;
+		padding: 0px;
+		margin: 0px;
+	}
+	#footer_util li{
+		float:left;
+		list-style: none;
+		border-right: solid 2px #626262;
+		margin: 0px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#footer_util li:last-child{
+		border-style: none;
+	}
+	#family_link li{
+		float:left;
+		list-style: none;
+	}
+	#footer #copyright{
+		margin:10px;
+		float:left;
+		margin: 5px;
+	}
+	#footer #info{
+		margin-left:10px;
+		margin-right:10px;
+		margin-top:25px;
+		margin-bottom:25px;
+		float:left;
+	}
+	#footer #family_link{
+		float:right;
+	}
+</style>
+<div id="footer">
+	<ul id="footer_util">
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+		<li>Work</li>
+		<li>Blog</li>
+		<li>Contact us</li>
+	</ul>
+	<div id="copyright">ⓒ 2013 BlueBox. All Right Reserved.</div>
+	<ul id="family_link">
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon1.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon2.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon3.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon4.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon5.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon6.png" /></li>
+	</ul>
+	<div id="info">the loges in the design are the property of their respective owners/copyright holders.</div>
+</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="table_title">CSS</td>
+				<td class="table_title">HTML</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>
+<style type="text/css">
+	#footer{
+		background-color: #333;
+		width:1000px;
+		position:relative;
+		overflow: auto;
+		color:#aaa;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+	#family_link{
+		float:right;
+	}
+	#family_link img{
+		width:37px;
+		height:37px;
+	}
+	#footer_util{
+		position:relative;
+		overflow: auto;
+		padding: 0px;
+		margin: 0px;
+	}
+	#footer_util li{
+		float:left;
+		list-style: none;
+		border-right: solid 2px #626262;
+		margin: 0px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#footer_util li:last-child{
+		border-style: none;
+	}
+	#family_link li{
+		float:left;
+		list-style: none;
+		margin: 5px;
+	}
+	#footer #copyright{
+		margin:10px;
+		float:left;
+	}
+	#footer #info{
+		margin-left:10px;
+		margin-right:10px;
+		margin-top:25px;
+		margin-bottom:25px;
+		float:left;
+	}
+	#footer #family_link{
+		float:right;
+	}
+</style>
+					</xmp>
+				</td>
+				<td>
+					<xmp>
+<div id="footer">
+	<ul id="footer_util">
+		<li>Home</li>
+		<li>About</li>
+		<li>Services</li>
+		<li>Work</li>
+		<li>Blog</li>
+		<li>Contact us</li>
+	</ul>
+	<div id="copyright">ⓒ 2013 BlueBox. All Right Reserved.</div>
+	<ul id="family_link">
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon1.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon2.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon3.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon4.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon5.png" /></li>
+		<li><img src="/kaywon/sub/img/layout_jpg/layout1_footer_icon6.png" /></li>
+	</ul>
+	<div id="info">the loges in the design are the property of their respective owners/copyright holders.</div>
+</div>
+					</xmp>
+				</td>
+			</tr>
+		</table>
+<!-- ------------------------------------------------------------------------------------------ -->
+<?php
+	if($_GET['pass']=='layout1'){
+		echo "<a href='/kaywon/sub/layout1.html' target='_blank'>결과물 링크</a>";
+	}
+?>
+	</body>
+</html>
